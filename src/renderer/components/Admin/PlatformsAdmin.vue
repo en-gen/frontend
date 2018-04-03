@@ -22,9 +22,11 @@ export default {
     ...mapState('platforms', {
       platforms: 'instances'
     }),
-    options: () => this.platforms
-      ? this.platforms.map(x => { return { value: x.id, text: x.name } })
-      : []
+    options: function () {
+      let test = this.platforms
+      console.log(test)
+      return test.map(x => { return { value: x, text: x.name } })
+    }
   },
   methods: {
     ...mapActions('platforms', {
