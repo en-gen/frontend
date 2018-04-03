@@ -24,7 +24,6 @@ export default {
     }),
     options: function () {
       let test = this.platforms
-      console.log(test)
       return test.map(x => { return { value: x, text: x.name } })
     }
   },
