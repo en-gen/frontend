@@ -1,15 +1,22 @@
 <template>
-  <div id="app">
-    <router-view></router-view>
+  <div id="app" class="container-fluid">
+    <admin />
+  <!--platform-select/ -->
   </div>
 </template>
 
-<script>
-  export default {
-    name: 'frontend'
-  }
-</script>
-
 <style>
-  /* CSS */
 </style>
+
+<script>
+import PlatformSelect from '@/components/PlatformSelect'
+import Admin from '@/components/Admin'
+
+export default {
+  name: 'frontend',
+  components: {
+    PlatformSelect,
+    Admin
+  }
+}
+</script>
