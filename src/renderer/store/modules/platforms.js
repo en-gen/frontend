@@ -1,4 +1,7 @@
 import metadata from '@/metadata'
+import { throttle } from 'lodash'
+
+const getPlatforms = throttle(metadata.getPlatforms, 300000)
 
 const state = {
   instances: []
@@ -12,8 +15,10 @@ const mutations = {
 
 const actions = {
   async load ({ commit }) {
-    let platforms = await metadata.getPlatforms()
-    commit('LOAD_PLATFORMS', platforms)
+    if (state.instances.length === 0) {
+      let platforms = await getPlatforms()
+      commit('LOAD_PLATFORMS', platforms)
+    }
   }
 }
 

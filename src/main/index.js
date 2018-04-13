@@ -20,13 +20,14 @@ function createWindow () {
    * Initial window options
    */
   mainWindow = new BrowserWindow({
-    width: 1280,
-    height: 720,
+    width: 1440,
+    height: 900,
     fullscreen: process.env.NODE_ENV !== 'development',
-    frame: false,
+    frame: true,
     resizable: true,
     webPreferences: {webSecurity: false}
   })
+  mainWindow.setMenu(null)
 
   mainWindow.loadURL(winURL)
 
